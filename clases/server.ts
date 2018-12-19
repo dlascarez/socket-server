@@ -27,16 +27,19 @@ export default class Server {
     private escucharSockets() {
         this.io.on('connection', cliente => {
             // Conectar cliente
-            socket.conectarCliente(cliente);
+            socket.conectarCliente(cliente, this.io);
 
             // Configurar usuario
             socket.configurarUsuario(cliente, this.io);
+
+            // Configurar usuario
+            socket.obtenerUsuarios(cliente, this.io);
 
             // Mensajes
             socket.message(cliente, this.io);
 
             // Desconectar
-            socket.desconectar(cliente);
+            socket.desconectar(cliente, this.io);
         });
     }
 

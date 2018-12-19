@@ -21,11 +21,10 @@ export class UsuarioLista {
                 break;
             }
         }
-        console.log(id);
     }
 
     public getLista() {
-        return this.lista;
+        return this.lista.filter(usuario => usuario.nombre !== 'sin-nombre');
     }
 
     public getUsuario(id: string) {
