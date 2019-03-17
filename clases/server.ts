@@ -40,6 +40,11 @@ export default class Server {
 
             // Desconectar
             socket.desconectar(cliente, this.io);
+
+            // Mapas
+            socket.marcadorNuevo(cliente);
+            socket.marcadorBorrar(cliente);
+            socket.marcadorMover(cliente);
         });
     }
 
